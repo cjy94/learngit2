@@ -1,0 +1,54 @@
+1、先手和后手取牌问题，   arr[L...R] 最优分数
+先手：
+max( arr[l] + s(L+1, R),
+arr[R] + s(L, R-1) )
+
+后手：
+min( f(L+1, R)),  // 对手取arr[L]牌之后， arr[L+1...R] 作为先手取牌
+f(L, R-1) )       // 对手取arr[R]牌之后， arr[L...R-1] 作为先手取牌
+
+范围的尝试模型，如果是正方形表，那么一般下半区是无效的
+
+补充题目： x坐标轴有9个刻度， y坐标轴有10个刻度， 棋盘走日的形式(x轴1步,y轴2步)，从(0,0)点走到指定点必须走step步数， 返回方法数
+process(int x, int y, int step)
+step==0  没有步数可走了， 方法数0
+
+
+补充题目： 给定一个行数和列数(row, col)， 表示范围，
+给定一个位置(a,b)，表示鲍勃所在的位置，必须走指定的步数k，不能斜着走， 只能向上、向下、向左、 向右走， 并且不能走到格子外面,
+问最后鲍勃能活下来的概率有多少？      活下来的步数 / 总方法数= f() / 4^k
+f(int x, int y, int row , int col, int step)  {
+
+if (x < 0 || x == row || y < 0 || y == col) {
+    return 0;
+}
+
+if (step == 0) {
+    return 1;
+}
+
+// 能向上走
+long live = process(x-1, y, row, col, step-1);
+// 能向下走
+live += process(x+1, y, row, col, step-1);
+// 能向左走
+live += process(x, y-1, row, col, step-1);
+// 能向右走
+live += process(x, y+1, row, col, step-1);
+}
+
+
+2、兑换货币问题， 求总的方法数
+ 动态规划
+
+
+3、二叉平衡树： AVL、SBTree、红黑树、跳表
+
+跳表的性能和平衡树的性能是一样的，再插入、删除、搜索的时间复杂度都是O(N)， 是一种利用空间换时间的数据结构
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+1、
+
+
+
+
+
+
+
+
+10、设计一个区间操作器，可以对区间进行如下操作
+1） addRange(int left, int right): 加入[left, right)这个区间
+2） queryRange(int left, int right): 查询区间[left, right)是否已经在这个区间操作容器里
+3） removeRange(int left, int right): 删除[left, right)这个区间
